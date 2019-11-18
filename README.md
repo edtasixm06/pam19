@@ -16,6 +16,16 @@ ASIX M06-ASO Escola del treball de barcelona
   password amb pwquality. El type account amb pam_time.so. El type sessions amb pam_mkhomedir.so i 
   pam_mount.so. Es practica pam_mount.so amb un muntatge tmpfs i un de nfs4.
 
+  Atenció, cal usar en el container --privileged per poder fer els muntatges nfs.
+
+  ```$ docker run --rm --name pam --hostname pam --privileged -it edtasixm06/hostpam19:base /bin/bash ```
+
 * **edtasixm06/hostpam19:auth** host pam amb autenticacio d'usuaris ldap usant nss-pam-ldapd. Usa el container 
   *edtasixm06/ldapserver19:latest*.
+
+  Atenció: cal usar una xarxa 'ldapnet' per assegurar-se que els dos containers s'identifiquen.
+
+  ```$ docker network create ldapnet
+     $ docker run --rm --name ldapserver -h ldapserver --net ldapnet -d edtasixm06/ldapserver:latest
+     $ docker run --rm --name pam --hostname pam --privileged --net ldapserver -it edtasixm06/hostpam19:base /bin/bash ```
 
