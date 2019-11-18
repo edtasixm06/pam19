@@ -25,7 +25,9 @@ ASIX M06-ASO Escola del treball de barcelona
 
   Atenció: cal usar una xarxa 'ldapnet' per assegurar-se que els dos containers s'identifiquen.
 
-  ```$ docker network create ldapnet
-     $ docker run --rm --name ldapserver -h ldapserver --net ldapnet -d edtasixm06/ldapserver:latest
-     $ docker run --rm --name pam --hostname pam --privileged --net ldapserver -it edtasixm06/hostpam19:base /bin/bash ```
+  ```
+  $ docker network create ldapnet
+  $ docker run --rm --name ldapserver -h ldapserver --net ldapnet -d edtasixm06/ldapserver:latest
+  $ docker run --rm --name pam --hostname pam --privileged --net ldapserver -it edtasixm06/hostpam19:base /bin/bash
+  ```
 
