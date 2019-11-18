@@ -10,14 +10,13 @@
 		since this file is still processed in a single pass
 		from top-to-bottom -->
 
-<debug enable="1" />
-
-		<!-- Volume definitions -->
-    <volume user="local3" fstype="tmpfs" mountpoint="/home/local3/tmp"
+<debug enable="0" />
+   <!-- Volume definitions -->
+    <volume user="*" fstype="tmpfs" mountpoint="~/tmp"
     options="size=100M,uid=%(USER),mode=0775" />
 
-    <volume user="local1" fstype="nfs" server="172.17.0.1" path="/usr/share/man" mountpoint="/mnt" />
-		<!-- pam_mount parameters: General tunables -->
+   <volume user="*" fstype="nfs" server="172.17.0.1" path="/usr/share/man" mountpoint="~/%(USER)/man" /> 
+  <!-- pam_mount parameters: General tunables -->
 
 <!--
 <luserconf name=".pam_mount.conf.xml" />
@@ -33,13 +32,9 @@
 <mntoptions deny="*" />
 -->
 <mntoptions require="nosuid,nodev" />
-
 <!-- requires ofl from hxtools to be present -->
 <logout wait="0" hup="no" term="no" kill="no" />
-
-
-		<!-- pam_mount parameters: Volume-related -->
-
+<!-- pam_mount parameters: Volume-related -->
 <mkmountpoint enable="1" remove="true" />
 
 

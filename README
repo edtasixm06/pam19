@@ -13,3 +13,5 @@ ASIX M06-ASO Escola del treball de barcelona
 
 * **hostpam19:base** host pam que autentica els usuaris contra ldap. Usar el container *ldapserver19:latets.
 
+* **hostpam19:auth** host pam amb autenticacio d'usuaris ldap usant nss-pam-ldapd
+
