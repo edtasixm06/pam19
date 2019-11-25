@@ -31,3 +31,5 @@ ASIX M06-ASO Escola del treball de barcelona
   $ docker run --rm --name pam --hostname pam --privileged --net ldapserver -it edtasixm06/hostpam19:base /bin/bash
   ```
 
+* **edtasixm06/hostpam19:scratch** host pam fet de nou i activant la configuració amb authconfig.
+ 
