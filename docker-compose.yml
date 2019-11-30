@@ -1,7 +1,7 @@
 version: "2"
 services:
   ldap:
-    image: edtasixm06/ldapserver19:latets
+    image: edtasixm06/ldapserver19:latest
     container_name: ldapserver
     hostname: ldapserver
     ports: 
