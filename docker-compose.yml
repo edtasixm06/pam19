@@ -25,9 +25,9 @@ services:
     hostname: nfs
     volumes:
       - "homes:/tmp/home"
-    ports:
-      - "111:111"
-      - "2049:2049"
+        #    ports:
+        #- "111:111"
+        #- "2049:2049"
     networks:
      - mynet
   pam:
@@ -36,6 +36,7 @@ services:
     hostname: pam
     networks:
      - mynet
+    privileged: true
 networks:
   mynet:
 volumes:
