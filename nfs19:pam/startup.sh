@@ -11,7 +11,7 @@
 
 # Configuració samba
 /usr/sbin/smbd && echo "smb Ok"
-/usr/sbin/nmbd && echo "nmb  Ok"
+# /usr/sbin/nmbd && echo "nmb  Ok"
 
 # -------------------------------------------------------------------
 # Creació dels comptes samba i directoris dels usuaris ldap ---------
@@ -19,12 +19,14 @@
 bash /opt/docker/ldapusers.sh
 # ===================================================================
 
-
 # -------------------------------------------------------------------
 # Activació del servei nfs
 /usr/sbin/rpcbind && echo "rpcbind Ok"
 /usr/sbin/rpc.statd && echo "rpc.stad Ok"
 /usr/sbin/rpc.nfsd && echo "rpc.nfsd Ok"
 /usr/sbin/rpc.mountd && echo "rpc.mountd Ok"
-/usr/sbin/exportfs -av
+/usr/sbin/exportfs -av 
 # -------------------------------------------------------------------
+
+/usr/sbin/nmbd -F
+
