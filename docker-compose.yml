@@ -28,6 +28,7 @@ services:
         #    ports:
         #- "111:111"
         #- "2049:2049"
+    privileged: true
     networks:
      - mynet
   pam:
