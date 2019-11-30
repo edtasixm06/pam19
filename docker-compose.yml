@@ -1,0 +1,36 @@
+version: "2"
+services:
+  kserver:
+    image: edtasixm11/k18:kserver
+    container_name: kserver.edt.org
+    hostname: kserver.edt.org
+    volumes:
+      - "krb5data:/var/kerberos"
+    networks:
+      - mynet
+  sshd:
+    image: edtasixm11/k18:sshd
+    container_name: sshd.edt.org
+    hostname: sshd.edt.org
+    networks:
+      - mynet        
+  portainer:
+    image: portainer/portainer
+    ports:
+      - "9000:9000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - mynet
+  ldap:
+    image: edtasixm06/ldapserver:18group
+    container_name: ldap.edt.org
+    hostname: ldap.edt.org
+    ports: 
+      - "389:389"
+    networks:
+     - mynet
+networks:
+  mynet:
+volumes:
+krb5data:

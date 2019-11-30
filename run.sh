@@ -7,6 +7,10 @@ docker run --rm --name ldapserver -h ldapserver --net ldapnet -d edtasixm06/ldap
 docker run --rm --name samba -h samba --net ldapnet -p 139:139 -p 445:445 -v homes:/tmp/home   --privileged   -d edtasixm06/samba19:pam
 docker run --rm --name nfs -h nfs --net ldapnet -v homes:/tmp/home   --privileged   -d edtasixm06/nfs19:pam
 
-docker run --rm --name pam -h pam --net ldapnet --privileged -it edtasixm06/hostpam19:samba /bin/bash
+docker run --rm --name pam -h pam --net ldapnet --privileged -it edtasixm06/hostpam19:nfs 
 
+docker exec -it pam /bin/bash
 
+docker stop pam
+docker stop nfs
+docker stop ldapserver
