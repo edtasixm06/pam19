@@ -34,4 +34,7 @@ ASIX M06-ASO Escola del treball de barcelona
 * **edtasixm06/hostpam19:scratch** host pam fet de nou i activant la configuració amb authconfig. Ara ja no cal copiar 
   manualment els fitxers nscd.conf nslcd.conf i nsswitch.conf, ja que authconfig els configura automàticament.
 
+* **edtasixm06/hostpam19:samba** host pam amb usuaris locals i usuaris de ldap. Als usuaris ldap se'ls munta el home 
+  via samba en un directori dins del seu home.
+
  
